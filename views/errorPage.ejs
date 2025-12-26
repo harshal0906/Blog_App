@@ -1,5 +1,32 @@
 <%- include('partials/head') %>
-	<%- include('partials/aside') %>
+<%- include('partials/aside') %>
 
-        
-		<%- include('partials/scripts') %>
+<div id="colorlib-main">
+    <div class="main-content">
+        <div class="signup-container">
+            
+            <div class="signup-header">
+                <h2>Login Failed</h2>
+                <p>Invalid email or password</p>
+            </div>
+
+            <div class="form-group">
+                <p style="text-align:center; color:#e74c3c; font-size:15px;">
+                    The email or password you entered is incorrect.
+                    Please try again.
+                </p>
+            </div>
+
+            <a href="/auth/login" class="btn btn-danger" style="display:block; text-align:center;">
+                Back to Login
+            </a>
+
+            <div class="login-link">
+                Forgot your password?
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include('partials/scripts') %>

@@ -7,7 +7,7 @@ const loginUser = async (req, res) => {
         const user = await User.findOne({ email, password });
 
         if (!user) {
-            return res.send('Invalid email or password');
+            return res.render('errorPage');
         }
 
         res.cookie('user', user._id, {
@@ -35,7 +35,7 @@ const signup = async (req, res) => {
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.send('Email already registered');
+            return res.render('emaiExist');
         }
 
         const newUser = new User({

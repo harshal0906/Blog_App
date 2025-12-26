@@ -5,7 +5,6 @@ const adminPage = async (req, res) => {
     try {
         const data = await BlogModel.find({});
         res.render('adminMainPage', { blogs: data });
-        console.log(data)
 
     } catch (error) {
         console.log(error)
