@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: blog-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: nodemon start
+    envVars:
+      - key: PORT
+        value: 6600
+      - key: MONGO_URI
+        value: mongodb+srv://harshalgadher:harshal091206@cluster0.yjvyn1p.mongodb.net/authDb
