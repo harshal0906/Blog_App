@@ -1,0 +1,86 @@
+<%- include('partials/head') %>
+    <div id="colorlib-page">
+        <a href="" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+
+        <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+            <h1 id="colorlib-logo"><a href="/">elen<span>.</span></a></h1>
+
+            <nav id="colorlib-main-menu" role="navigation">
+                <ul>
+                    <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/addBlog">Add Blog</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </nav>
+
+            <div class="colorlib-footer">
+                <p>
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    All rights reserved
+                </p>
+
+                <ul>
+                    <li><a href=""><i class="icon-facebook"></i></a></li>
+                    <li><a href=""><i class="icon-twitter"></i></a></li>
+                    <li><a href=""><i class="icon-instagram"></i></a></li>
+                    <li><a href=""><i class="icon-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- aside-END -->
+
+
+        <div id="colorlib-main">
+            <section class="ftco-section">
+                <div class="container">
+                    <div class="row justify-content-center mb-2 pb-2">
+                        <div class="col-md-7 heading-section text-center ftco-animate">
+                            <h2 class="mb-4">Your Blogs</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <% blogs.map(function(data){ %>
+                            <div class="col-md-4">
+                                <div class="blog-entry">
+
+                                    <img src="/<%= data.blogImg %>" class="img img-2 img-fluid"
+                                        style="height:200px; object-fit:cover;" />
+
+                                    <div class="text pt-3">
+                                        <h3>
+                                            <%= data.title %>
+                                        </h3>
+                                        <p>
+                                            <%= data.description %>
+                                        </p>
+                                        <span class="text-danger pb-2">
+                                            <%= data.tag %>
+                                        </span>
+                                        <div class="d-flex mt-2 justify-content-between">
+                                            <a href="/admin/editBlog/<%= data._id %>"
+                                                class="btn align-center px-4 pt-2 font-bold  btn-primary">
+                                                Edit
+                                            </a>
+
+                                            <a href="#" class="btn btn-danger"
+                                                onclick="confirmDelete('<%= data._id %>')">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+
+                                <% if (blogs.length===0) { %>
+                                    <p class="text-center w-100">No blogs added yet</p>
+                                    <% } %>
+                    </div>
+
+                </div>
+            </section>
+
+            <%- include('partials/scripts') %>

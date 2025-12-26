@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+    <div id="colorlib-page">
+        <a href="" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+
+        <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+            <h1 id="colorlib-logo"><a href="/">elen<span>.</span></a></h1>
+
+            <nav id="colorlib-main-menu" role="navigation">
+                <ul>
+                    <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/addBlog">Add Blog</a></li>
+                    <li><a href="/">Log Out</a></li>
+                </ul>
+            </nav>
+
+            <div class="colorlib-footer">
+                <p>
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    All rights reserved
+                </p>
+
+                <ul>
+                    <li><a href=""><i class="icon-facebook"></i></a></li>
+                    <li><a href=""><i class="icon-twitter"></i></a></li>
+                    <li><a href=""><i class="icon-instagram"></i></a></li>
+                    <li><a href=""><i class="icon-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- aside-END -->
+
+
+        <div id="colorlib-main">
+            <div class="container ">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-6">
+                        <h3 class="mb-4 text-center">Edit Blog</h3>
+
+                        <form method="post" action="/admin/editBlog/<%= data._id %>" enctype="multipart/form-data">
+                            <div class="form-group mb-3">
+                                <label>Blog Title</label>
+                                <input type="text" name="title" class="form-control" value="<%= data.title %>"
+                                    placeholder="Enter blog title">
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Blog Description</label>
+                                <textarea class="form-control" name="description" rows="4"
+                                    placeholder="Enter blog description"> <%= data.description %></textarea>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label>Blog Tag</label>
+                                <input type="text" name="tag" class="form-control" value="<%= data.tag %>"
+                                    placeholder="Enter blog tag:( javascript, react, java)">
+                            </div>
+
+                        
+                            <div class="form-group mb-4">
+                                <label>Blog Image</label>
+                                <img src="/<%= data.blogImg %>" style="width:100%; max-height:200px; object-fit:cover;">
+                                <input type="file" name="blogImg" accept="image/*" class="form-control">
+                            </div>
+
+                            <button type="submit" class="btn btn-danger w-100">
+                                Update Blog
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <%- include('partials/scripts') %>

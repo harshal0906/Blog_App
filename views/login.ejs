@@ -1,0 +1,45 @@
+<%- include('partials/head') %>
+<%- include('partials/aside') %>
+
+<div id="colorlib-main">
+    <div class="main-content">
+        <div class="signup-container">
+            <div class="signup-header">
+                <h2>Login</h2>
+                <p>Welcome back, please login to your account</p>
+            </div>
+
+            <form id="loginForm" action="/auth/login" method="post" >
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-icon">
+                        <input type="email" name="email" class="form-control" id="email"
+                            name="email" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon">
+                        <input type="password" name="password" class="form-control" id="password"
+                            name="password" placeholder="Enter your password" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-signup">Login</button>
+
+                <div class="login-link">
+                    Don't have an account? <a href="/auth/signup">Create Account</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/scripts') %>
